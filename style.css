@@ -54,6 +54,7 @@ header {
     padding: 10px 0;
 }
 
+
 .top-nav ul {
     list-style: none;
     display: flex;
@@ -62,6 +63,53 @@ header {
     padding: 0;
     gap: 40px;
 }
+.top-nav .nav-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.top-nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.top-nav .nav-links li a {
+    color: #FFB907;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.top-nav .nav-links li a:hover {
+    color: #FFFFFF;
+    border-bottom: 2px solid #FFB907;
+}
+
+.top-nav .login-prompt {
+    position: absolute;
+    right: 50px;
+}
+
+.top-nav .login-prompt a {
+    color: #FFB907;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.top-nav .login-prompt a:hover {
+    color: #FFFFFF;
+}
+
 
 .top-nav a {
     color: #FFB907;

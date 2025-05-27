@@ -1,0 +1,112 @@
+/* Algemene stijl */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFFFFF;
+    color: #0F2241;
+}
+
+/* Header met blauw en geel */
+header {
+    background-color: #0F2241;
+    color: #FFB907;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* Container voor kaarten */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+/* Kaarten met blauwe rand en hover-effect */
+.card {
+    background-color: #F9F9F9;
+    border: 2px solid #0F2241;
+    box-shadow: 0 0 10px rgba(15, 34, 65, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 185, 7, 0.4);
+    border-color: #FFB907;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #0F2241;
+}
+
+.card p {
+    color: #333;
+}
+/* Navigatiebalk bovenaan */
+.top-nav {
+    background-color: #0F2241;
+    padding: 10px 0;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 40px;
+}
+
+.top-nav a {
+    color: #FFB907;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.top-nav a:hover {
+    color: #FFFFFF;
+    border-bottom: 2px solid #FFB907;
+}
+/* Footer */
+.site-footer {
+    background-color: #0F2241;
+    color: #FFB907;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: #FFB907;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #FFFFFF;
+}

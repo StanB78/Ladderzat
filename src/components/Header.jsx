@@ -1,0 +1,52 @@
+function Header() {
+    return (
+        <div className="main">
+            <header>
+                <html lang="nl">
+                <head>
+                    <meta charset="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title>Ladderzat</title>
+                    <link rel="stylesheet" href="style.css" />
+                </head>
+                <body>
+                <header>
+                    <nav class="top-nav">
+                        <div class="nav-wrapper">
+                            <ul class="nav-links">
+                                <li><a href="aboutus.html">Over ons</a></li>
+                                <li><a href="#">Info</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                            <div class="login-prompt">
+                                <a href="login.php">Login</a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <h1>Ladderzat</h1>
+                </header>
+
+                <main class="card-container">
+
+                </main>
+                <footer class="site-footer">
+                    <div class="footer-content">
+                        <p>&copy; 2025 JouwWebsite. Alle rechten voorbehouden.</p>
+                        <ul class="footer-links">
+                            <li><a href="#about">Over ons</a></li>
+                            <li><a href="#info">Info</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </footer>
+
+                </body>
+                </html>
+            </header>
+        </div>
+    );
+}
+
+export default Header;
+

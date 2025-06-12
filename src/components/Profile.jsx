@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Profile({ onLogout }) {
     return (
         <div className="profile-container">

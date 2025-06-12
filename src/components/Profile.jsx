@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Profile({ onLogout }) {
+function Profile() {
     return (
         <div className="profile-container">
             <div className="profile-header">
@@ -24,8 +24,6 @@ function Profile({ onLogout }) {
                     </video>
                 </div>
             </div>
-
-            <button onClick={onLogout}>Log Out</button>
         </div>
     );
 }

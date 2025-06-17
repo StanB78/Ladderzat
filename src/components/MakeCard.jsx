@@ -32,7 +32,7 @@ function MakeCard() {
                 </div> 
 
                 <div className="form-group">
-                    <label htmlFor="cardSpelers"></label>
+                    <label htmlFor="cardSpelers">Met hoeveel spelers ben je?</label>
                     <ul>
                         <li><label><input type="radio" name="woord" value="1-2"/> 1-2 spelers</label></li>
                         <li><label><input type="radio" name="woord" value="3-4"/> 3-4 spelers</label></li>

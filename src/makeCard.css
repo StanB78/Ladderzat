@@ -20,7 +20,7 @@
 
     input[type="text"],
     textarea {
-    width: 100%;
+    width: 97%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -59,4 +59,9 @@
 
     .submit-button:hover {
     background-color: rgb(2, 98, 201);
+    }
+
+    h2,
+    p{
+        text-align: center;
     }

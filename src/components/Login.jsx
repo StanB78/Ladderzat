@@ -1,28 +1,34 @@
-// components/Login.jsx
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleAuthProvider } from "../firebase.js"; // pas het pad aan naar jouw firebase.js
 
 function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const [error, setError] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-    const handleLogin = (e) => {
-        e.preventDefault();
+    const loginWithGoogle = () => {
+    signInWithPopup(auth, googleAuthProvider)
+      .then((result) => {
+        // Log user.
+        console.log(result.user);
 
-        // Simpele fake login (later kun je dit vervangen met echte API)
-        if (username === 'admin' && password === 'password') {
-            localStorage.setItem('token', '123fakeToken'); // zet token
-            navigate('/make-card'); // navigeer na inloggen
-        } else {
-            alert('Ongeldige gegevens');
-        }
-    };
+        // User is logged in. Sent to homepage.
+        navigate("/profile");
+      })
+      .catch((error) => {
+        setError(error.message);
+        console.log(error.message);
+      });
+  };
 
-    return (
-        <div className="login-page">
+  return (
+    <>
+    <div className="login-page">
             <h2>Login</h2>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={loginWithGoogle}>
                 <input
                     type="text"
                     placeholder="Gebruikersnaam"
@@ -40,7 +46,12 @@ function Login() {
                 <button type="submit">Inloggen</button>
             </form>
         </div>
-    );
+    <div>
+      <button onClick={loginWithGoogle}>Log in with Google</button>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+    </div>
+    </>
+  );
 }
 
 export default Login;

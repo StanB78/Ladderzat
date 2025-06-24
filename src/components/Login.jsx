@@ -15,7 +15,6 @@ function Login() {
         // Log user.
         console.log(result.user);
 
-        // User is logged in. Sent to homepage.
         navigate("/profile");
       })
       .catch((error) => {

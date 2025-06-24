@@ -18,7 +18,8 @@ function Header() {
                         <li><Link to="/about">Over ons</Link></li>
                         <li><Link to="/info">Info</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
-                        <li><Link to="/make-card">Make Card</Link></li>
+                        <li><Link to="/">Spellen</Link></li>
+                        <li><Link to="/make-card">Spel toevoegen</Link></li>
                     </ul>
                     <div className="auth-actions">
                         {isLoggedIn ? (

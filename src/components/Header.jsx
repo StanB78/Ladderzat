@@ -1,4 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Routes, Route} from 'react-router-dom';
+import About from './About';
+import Home from './Home';
+import Contact from './Contact';
+import MakeCard from "./MakeCard";
 
 function Header() {
     const navigate = useNavigate();
@@ -15,11 +20,10 @@ function Header() {
             <nav className="top-nav">
                 <div className="nav-wrapper">
                     <ul className="nav-links">
-                        <li><Link to="/about">Over ons</Link></li>
-                        <li><Link to="/info">Info</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
-                        <li><Link to="/">Spellen</Link></li>
-                        <li><Link to="/make-card">Spel toevoegen</Link></li>
+                        <li><Link to={"/"}>Home</Link></li>
+                        <li><Link to={"/about"}>About</Link></li>
+                        <li><Link to={"/contact"}>Contact</Link></li>
+                        <li><Link to={"/make-card"}>Maak een kaart</Link></li>
                     </ul>
                     <div className="auth-actions">
                         {isLoggedIn ? (

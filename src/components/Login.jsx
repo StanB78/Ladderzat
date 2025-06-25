@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithPopup } from "firebase/auth";
-import { auth, googleAuthProvider } from "../firebase.js"; // pas het pad aan naar jouw firebase.js
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { auth, googleAuthProvider } from "../firebase.js";
+
 
 function Login() {
     const navigate = useNavigate();
@@ -9,48 +10,65 @@ function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const loginWithGoogle = () => {
-    signInWithPopup(auth, googleAuthProvider)
-      .then((result) => {
-        // Log user.
-        console.log(result.user);
+    const handleFormLogin = async (e) => {
+        e.preventDefault();
+        setError("");
 
-        navigate("/profile");
-      })
-      .catch((error) => {
-        setError(error.message);
-        console.log(error.message);
-      });
-  };
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, username, password);
+            const token = await userCredential.user.getIdToken();
+            localStorage.setItem("token", token);
+            window.dispatchEvent(new Event("storage"));
+            navigate("/profile");
+        } catch (error) {
+            setError(error.message);
+            console.error(error.message);
+        }
+    };
 
-  return (
-    <>
-    <div className="login-page">
-            <h2>Login</h2>
-            <form onSubmit={loginWithGoogle}>
-                <input
-                    type="text"
-                    placeholder="Gebruikersnaam"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Wachtwoord"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Inloggen</button>
-            </form>
-        </div>
-    <div>
-      <button onClick={loginWithGoogle}>Log in with Google</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-    </div>
-    </>
-  );
+
+    const loginWithGoogle = async () => {
+        try {
+            const result = await signInWithPopup(auth, googleAuthProvider);
+            const token = await result.user.getIdToken();
+            localStorage.setItem("token", token);
+            window.dispatchEvent(new Event("storage"));
+            navigate("/profile");
+        } catch (error) {
+            setError(error.message);
+            console.error(error.message);
+        }
+    };
+
+
+    return (
+        <>
+            <div className="login-page">
+                <h2>Login</h2>
+                <form onSubmit={handleFormLogin}>
+                    <input
+                        type="email"
+                        placeholder="Email..."
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Wachtwoord"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <button type="submit">Inloggen</button>
+                </form>
+            </div>
+            <div>
+                <button onClick={loginWithGoogle}>Log in with Google</button>
+                {error && <p style={{ color: "red" }}>{error}</p>}
+            </div>
+        </>
+    );
 }
 
 export default Login;

@@ -44,8 +44,12 @@ function Header() {
                     <div className="auth-actions">
                         {isLoggedIn ? (
                             <>
-                                <Link to="/profile" className="auth-button">Profile</Link>
-                                <button onClick={handleLogout} className="auth-button">Logout</button>
+                                <div className="profile-menu">
+                                    <div className="logout-dropdown">
+                                        <Link to="/profile" className="menu-button">Profile</Link>
+                                        <button className="menu-button" onClick={handleLogout}>Logout</button>
+                                    </div>
+                                </div>
                             </>
                         ) : (
                             <Link to="/login" className="auth-button">Login</Link>

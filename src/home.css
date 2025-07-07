@@ -1,0 +1,35 @@
+*{
+    color: black;
+}
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolommen van gelijke breedte */
+  gap: 20px; /* ruimte tussen de items */
+  padding: 10px;
+}
+
+.post-card {
+  padding: 15px;
+  border: 2px solid #FFB907;
+  border-radius: 8px;
+  box-shadow:
+    0 0 5px #FFB907,
+    0 0 10px #FFB907,
+    0 0 20px #FFB907;
+  /* background-color: #1a1a1a; */
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: scale(1.0);
+  box-shadow:
+    0 0 10px #FFB907,
+    0 0 20px #FFB907,
+    0 0 30px #FFB907;
+}
+
+button{
+    background-color: rgb(226, 9, 9);
+}
